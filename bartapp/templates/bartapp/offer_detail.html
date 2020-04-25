@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div>
+        <h1>{{ offer.title }}</h1>
+        <i>{{ offer.date_published|timesince }} by {{ offer.author.username }} </i>
+        <p>{{ offer.description|safe }}</p>
+        
+
+
+        {% for image in offer.images.all %}
+            <img src="{{ image.image.url }}" />
+        {% endfor %}
+        
+        
+    </div>
+
+{% endblock %}

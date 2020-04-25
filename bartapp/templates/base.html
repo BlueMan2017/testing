@@ -1,0 +1,76 @@
+
+{% load static %}
+<!doctype html>
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Barterio App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'bartapp/styles/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'bartapp/fontello/css/fontello.css' %}">
+
+    <title>{% block title %}Strona glowna{% endblock %}</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-brand">
+        <a class="navbar-brand" href="#"><img src="{% static 'bartapp/images/barterio.svg' %}" alt="Barterio logo"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+            <ul class="navbar-nav px-3">
+                <a style="text-decoration: none; color: white;" class="align-items-center order-lg-4 mr-2 ml-4 d-none d-lg-flex" href="/login">
+                  <!-- <img
+                        src="{% static 'bartapp/icons/login.svg' %}" alt="login"> -->
+                        <i style="color: color; font-size: 30px" class="icon-user"></i>
+                      </a>
+                <form class="form-inline my-2 my-lg-0 order-lg-3 position-relative">
+                    <input class="form-control mr-sm-2 d-flex w-100" type="search" placeholder="Wyszukaj"
+                        aria-label="Search">
+                    <button class="btn btn-outline-success my-sm-0 position-absolute r-0 search-bttn" type="submit"><img
+                            src="{% static 'bartapp/icons/search.svg' %}" alt="wyszukaj"></button>
+                </form>
+                <li class="nav-item dropdown order-lg-1">
+                    <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Wybierz kategorię
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="kategorie/art-spozywcze/index.html">Art. spożywcze</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Odzież i obuwie</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Zdrowie i uroda</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Ogrodnictwo</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Edukacja</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Usługi</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Inne</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown order-lg-2">
+                    <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Wybierz miasto
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Warszawa</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Reszta :D</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div>{% block content %}{% endblock %}</div>
+  </body>
+</html>

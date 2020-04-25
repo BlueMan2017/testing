@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div style="text-align: center">
+        {% if request.user.is_authenticated %}
+            <h1>Yo, this is {{ request.user.username }}</h1>
+        {% endif %}
+        <h1>Barter.io</h1>
+        <h3>Exchange your sh*t and f*ck government</h3>
+        <p>What you gonna do?</p>
+        <ul>
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'bartapp:logout' %}">Logout</a></li>
+            {% else %}
+                <li><a href="{% url 'bartapp:login' %}">Login</a></li>
+                <li><a href="{% url 'bartapp:register' %}">Register</a></li>
+            {% endif %}
+
+            
+                
+            
+        </ul>
+    </div>
+{% endblock %}
