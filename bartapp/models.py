@@ -1,6 +1,5 @@
 from django.db import models
 from django.conf import settings
-from phonenumber_field.modelfields import PhoneNumberField
 from django.utils import timezone
 import datetime
 from django.core.validators import RegexValidator
@@ -13,7 +12,7 @@ from django.urls import reverse
 class Profile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     date_of_birth = models.DateField()
-    mobile = PhoneNumberField(unique=True)
+    mobile = models.CharField(max_length=20)
     company_name = models.CharField(max_length=50, blank=True)
     company_description = RichTextField(blank=True)
     company_short_description = models.CharField(max_length=120, blank=True)
