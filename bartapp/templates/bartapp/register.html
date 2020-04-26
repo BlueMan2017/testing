@@ -5,13 +5,17 @@
 {% block title %}Utwórz konto{% endblock title %}
 
 {% block content %}
-    
-        
-    <p> Wypełnij ponizszy formularz, aby sie zarejestrować </p>
-    <form action='.' method="post">
-        {{ user_form|crispy }}
-        {% csrf_token %}
-        <p><input type="submit" value="Utwórz konto"></p>
-    </form>
-      
+
+<div class="container my-4">
+    <div class="row">
+        <div class="col col-md-8 col-lg-6 mx-auto">
+            <h4 class="col col-md-10 my-4 px-0"> Wypełnij ponizszy formularz, aby&nbsp;sie&nbsp;zarejestrować </h4>
+            <form action='.' method="post">
+                {{ user_form|crispy }}
+                {% csrf_token %}
+                <input class="btn btn-primary my-4" type="submit" value="Utwórz konto">
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock content %}

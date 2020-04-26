@@ -2,24 +2,41 @@
 {% load static %}
 
 {% block content %}
-    <div style="text-align: center">
-        {% if request.user.is_authenticated %}
-            <h1>Yo, this is {{ request.user.username }}</h1>
-        {% endif %}
-        <h1>Barter.io</h1>
-        <h3>Exchange your sh*t and f*ck government</h3>
-        <p>What you gonna do?</p>
-        <ul>
-            {% if user.is_authenticated %}
-                <li><a href="{% url 'bartapp:logout' %}">Logout</a></li>
-            {% else %}
-                <li><a href="{% url 'bartapp:login' %}">Login</a></li>
-                <li><a href="{% url 'bartapp:register' %}">Register</a></li>
-            {% endif %}
-
-            
-                
-            
-        </ul>
+<div class="hero container">
+    <div class="row">
+        <div class="col">
+            <h1 class="my-4 my-md-5 text-center">
+                Sprzedawaj<br>
+                Wymieniaj<br>
+                Zarabiaj
+            </h1>
+        </div>
     </div>
+    <div class="row">
+        <div class="col">
+            <div class="text-center">
+                <img src="{% static 'bartapp/images/hero.svg' %}" alt="sprzedawaj online">
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center mb-4 mb-md-5">
+        <div class="col col-md-8 text-center">
+            {% if request.user.is_authenticated %}
+            <h5 class="my-4">Możesz już zacząć przeszukiwać oferty i wystawiać własne :)</h5>
+            {% else %}
+            <h5 class="my-4">
+                Dołącz do ogólnopolskiej platfromy wymiany towarów i&nbsp;usług
+            </h5>
+            {% endif %}
+            {% if user.is_authenticated %}
+            <a class="btn btn-link" href="{% url 'bartapp:logout' %}">Wyloguj</a>
+            {% else %}
+            <a class="btn btn-lg text-light text-decoration-none text-light"
+                href="{% url 'bartapp:register' %}">Zarejestruj się</a>
+            <p class="mt-4 mb-0 text-muted">Masz już konto?</p>
+            <a class="btn btn-link" href="{% url 'bartapp:login' %}">Zaloguj</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
 {% endblock %}

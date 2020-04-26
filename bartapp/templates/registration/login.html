@@ -3,23 +3,25 @@
 {% block title %}Logowanie{% endblock title %}
 
 {% block content %}
-<h1>Logowanie</h1>
-{% if form.errors %}
-    <p> 
-    Nazwa użytkownika lub hasło są nieprawidłowe. Spróbuj ponownie.
-    </p>
-{% else %}
-    <p> Wypełnij poniższy formularz, aby się zalogować </p>
-
-{% endif %}
-
-<div class="login_form">
-    <form action="{% url 'bartapp:login' %}" method="post">
-        {{ form.as_p }}
-        {% csrf_token %}
-        <input type="hidden" name="next" value ="{{ next }}" />
-        <p><input type="submit" value="Zaloguj"></p>
-    </form>
-    <p><a href="{% url 'bartapp:password_reset' %}">Zapomniałeś hasła? </p>
+<div class="container my-4">
+    <div class="row">
+        <div class="col col-md-8 col-lg-5 mx-auto">
+            <div class="card text-center py-4 py-lg-5">
+                <h3><strong> Logowanie</strong></h3>
+                {% if form.errors %}
+                <small class="text-danger mt-2 mb-4">Nazwa użytkownika lub hasło są nieprawidłowe. Spróbuj
+                    ponownie.</small>
+                {% else %}
+                <p class="mt-2 mb-4">Wypełnij poniższy formularz, aby się zalogować:</p>
+                {% endif %}
+                <form action="{% url 'bartapp:login' %}" method="post">
+                    {{ form.as_p }}
+                    {% csrf_token %}
+                    <input class="btn btn-primary mt-2 px-4" type="submit" value="Zaloguj"></p>
+                </form>
+                <small class="text-muted"><a href="{% url 'bartapp:password_reset' %}">Zapomniałeś hasła?</a></small>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock content %}

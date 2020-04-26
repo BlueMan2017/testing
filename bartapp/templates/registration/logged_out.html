@@ -4,9 +4,15 @@
 
 
 {% block content %}
-    <h1> Wylogowaniee </h1>
-    <p> Zostałeś pomyślnie wylogowany. Możesz <a href="{% url 'bartapp:login' %}">
-    Zalogować się ponownie </a></p>
-
-
+<div class="container my-4">
+    <div class="row">
+        <div class="col col-md-8 col-lg-5 mx-auto">
+            <div class="card text-center py-4 py-lg-5">
+                <h3><strong> Wylogowanie </strong></h3>
+                <p class="mb-0"> Zostałeś pomyślnie wylogowany.<br> Możesz <a href="{% url 'bartapp:login' %}">
+                        Zalogować się ponownie </a></p>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock content %}
