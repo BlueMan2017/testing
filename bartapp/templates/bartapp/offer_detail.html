@@ -2,81 +2,22 @@
 {% load static %}
 
 {% block content %}
-<div class="pos-f-t">
-    <div class="collapse" id="navbarToggleExternalContent">
-        <div class="bg-brand-45 p-4">
-            <div class="container d-flex flex-column mb-4 text-center align-items-center">
-                <h5><strong>Kategoria</strong></h5>
-                <div class="col col-lg-8" role="group">
-                    <button type="button"
-                        class="col col-lg-auto btn btn-light align-items-center text-left text-lg-center m-1"><img
-                            src="{% static 'bartapp/icons/spozywcze.svg' %}" alt="art. spożywcze"
-                            style="width: 32px;margin-right: 0.5rem;">Art.
-                        spożywcze</button>
-                    <button type="button"
-                        class="col col-lg-auto btn btn-light align-items-center text-left text-lg-center m-1"><img
-                            src="{% static 'bartapp/icons/odziez.svg' %}" alt="odzież i obuwie"
-                            style="width: 32px;margin-right: 0.5rem;">Odzież i obuwie</button>
-                    <button type="button"
-                        class="col col-lg-auto btn btn-light align-items-center text-left text-lg-center m-1"><img
-                            src="{% static 'bartapp/icons/zdrowie.svg' %}" alt="zdrowie i uroda"
-                            style="width: 32px;margin-right: 0.5rem;">Zdrowie i uroda</button>
-                    <button type="button"
-                        class="col col-lg-auto btn btn-light align-items-center text-left text-lg-center m-1"><img
-                            src="{% static 'bartapp/icons/ogrod.svg' %}" alt="ogrodnictwo"
-                            style="width: 32px;margin-right: 0.5rem;">Ogrodnictwo</button>
-                    <button type="button"
-                        class="col col-lg-auto btn btn-light align-items-center text-left text-lg-center m-1"><img
-                            src="{% static 'bartapp/icons/edukacja.svg' %}" alt="edukacja"
-                            style="width: 32px;margin-right: 0.5rem;">Edukacja</button>
-                    <button type="button"
-                        class="col col-lg-auto btn btn-light align-items-center text-left text-lg-center m-1"><img
-                            src="{% static 'bartapp/icons/uslugi.svg' %}" alt="usługi"
-                            style="width: 32px;margin-right: 0.5rem;">Usługi</button>
-                    <button type="button"
-                        class="col col-lg-auto btn btn-light align-items-center text-left text-lg-center m-1"><img
-                            src="{% static 'bartapp/icons/inne.svg' %}" alt="inne"
-                            style="width: 32px;margin-right: 0.5rem;">Inne</button>
-                </div>
-            </div>
-            <div class="container d-flex flex-column text-center align-items-center">
-                <h5><strong>Miasto</strong></h5>
-                <div class="col col-lg-8" role="group">
-                    <button type="button" class="btn bg-brand text-light m-1">Warszawa</button>
-                    <button type="button" class="btn bg-brand text-light m-1">Kraków</button>
-                    <button type="button" class="btn bg-brand text-light m-1">Wrocław</button>
-                    <button type="button" class="btn bg-brand text-light m-1">Gdańsk</button>
-                    <button type="button" class="btn bg-brand text-light m-1">Poznań</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <nav class="navbar navbar-dark bg-brand-40 justify-content-center justify-content-lg-end">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent"
-            aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-            <img src="{% static 'bartapp/icons/filter.svg' %}">
-        </button>
-    </nav>
-</div>
-<div class="container">
-    <div class="row">
-        <div class="col col-lg-6 mx-auto">
-            <div class="card my-4 my-md-5">
+<div class="container my-4 my-md-5">
+    <div class="grid-wrapper">
+        <div class="grid-item">
+            <div class="card">
                 <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active" data-interval="8000">
-                            <div class="d-block w-100 bg-img"
-                                style="background-image: url({{ offer.images.all.0.image.url }}); height: 400px;background-size: cover; background-repeat: no-repeat; background-position: center;">
+                            <div class="d-block bg-img"
+                                style="background-image: url({{ offer.images.all.0.image.url }});">
                             </div>
-                            <!-- <img src=" {{ offer.images.all.0.image.url }}" class="d-block w-100" alt="gallery"> -->
                         </div>
                         {% for image in offer.images.all %}
                         {% if forloop.counter > 1 %}
                         <div class="carousel-item" data-interval="8000">
-                            <div class="d-block w-100 bg-img"
-                                style="background-image: url({{ image.image.url }});height: 400px;background-size: cover; background-repeat: no-repeat; background-position: center;">
+                            <div class="d-block bg-img" style="background-image: url({{ image.image.url }});">
                             </div>
-                            <!-- <img src="{{ image.image.url }}" class="d-block w-100" alt="gallery"> -->
                         </div>
                         {% endif %}
                         {% endfor %}
@@ -90,14 +31,156 @@
                         <span class="sr-only">Next</span>
                     </a>
                 </div>
-                <div class="card-body">
-                    <h5 class="card-title"><strong>{{ offer.title }}</strong></h5>
-                    <small class="card-text">{{ offer.date_published|timesince }} by {{ offer.author.username }}</small>
+                <div class="card-body pb-0">
+                    <h5><strong>Czerwone róże</strong></h5>
+                    <small class="text-muted">Opublikowano: 26/04/2020</small>
                 </div>
-                <div class="card-body">
-                    <a href="#" class="card-link"><img class="mr-1" src="{% static 'bartapp/icons/pin.svg' %}"
-                            alt="lokalizacja">
-                        Katowice</a>
+                <div class="card-body py-2 pt-0">
+                    <small class="card-text py-1 px-2 text-light rounded bg-primary">Odzież i obuwie</small>
+                    <small class="card-text py-1 px-2 text-light rounded bg-brand">wymiana +
+                        gotówka</small></div>
+                <div class="dropdown-divider"></div>
+                <div class="card-body pt-2">
+                    <p class="card-text">Nazwa Użytkowika</p>
+                </div>
+                <div class="card-header d-flex justify-content-between" style="border-bottom: none;">
+                    <p class="mb-0">Szacowana wartość:</p>
+                    <h5 class="card-title text-right mb-0"> 300 zł/szt.</h5>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item">
+            <div class="card ">
+                <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" data-interval="8000">
+                            <div class="d-block w-100 bg-img"
+                                style="background-image: url({{ offer.images.all.0.image.url }});">
+                            </div>
+                        </div>
+                        {% for image in offer.images.all %}
+                        {% if forloop.counter > 1 %}
+                        <div class="carousel-item" data-interval="8000">
+                            <div class="d-block w-100 bg-img" style="background-image: url({{ image.image.url }});">
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                <div class="card-body pb-0">
+                    <h5><strong>Czerwone róże</strong></h5>
+                    <small class="text-muted">Opublikowano: 26/04/2020</small>
+                </div>
+                <div class="card-body py-2 pt-0">
+                    <small class="card-text py-1 px-2 text-light rounded bg-primary">Odzież i obuwie</small>
+                    <small class="card-text py-1 px-2 text-light rounded bg-brand">wymiana +
+                        gotówka</small></div>
+                <div class="dropdown-divider"></div>
+                <div class="card-body pt-2">
+                    <p class="card-text">Nazwa Użytkowika</p>
+                </div>
+                <div class="card-header d-flex justify-content-between" style="border-bottom: none;">
+                    <p class="mb-0">Szacowana wartość:</p>
+                    <h5 class="card-title text-right mb-0"> 300 zł/szt.</h5>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item">
+            <div class="card">
+                <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" data-interval="8000">
+                            <div class="d-block w-100 bg-img"
+                                style="background-image: url({{ offer.images.all.0.image.url }});">
+                            </div>
+                        </div>
+                        {% for image in offer.images.all %}
+                        {% if forloop.counter > 1 %}
+                        <div class="carousel-item" data-interval="8000">
+                            <div class="d-block w-100 bg-img" style="background-image: url({{ image.image.url }});">
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                <div class="card-body pb-0">
+                    <h5><strong>Czerwone róże</strong></h5>
+                    <small class="text-muted">Opublikowano: 26/04/2020</small>
+                </div>
+                <div class="card-body py-2 pt-0">
+                    <small class="card-text py-1 px-2 text-light rounded bg-primary">Odzież i obuwie</small>
+                    <small class="card-text py-1 px-2 text-light rounded bg-brand">wymiana +
+                        gotówka</small></div>
+                <div class="dropdown-divider"></div>
+                <div class="card-body pt-2">
+                    <p class="card-text">Nazwa Użytkowika</p>
+                </div>
+                <div class="card-header d-flex justify-content-between" style="border-bottom: none;">
+                    <p class="mb-0">Szacowana wartość:</p>
+                    <h5 class="card-title text-right mb-0"> 300 zł/szt.</h5>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item">
+            <div class="card ">
+                <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" data-interval="8000">
+                            <div class="d-block w-100 bg-img"
+                                style="background-image: url({{ offer.images.all.0.image.url }});">
+                            </div>
+                        </div>
+                        {% for image in offer.images.all %}
+                        {% if forloop.counter > 1 %}
+                        <div class="carousel-item" data-interval="8000">
+                            <div class="d-block w-100 bg-img" style="background-image: url({{ image.image.url }});">
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                <div class="card-body pb-0">
+                    <h5><strong>Czerwone róże</strong></h5>
+                    <small class="text-muted">Opublikowano: 26/04/2020</small>
+                </div>
+                <div class="card-body py-2 pt-0">
+                    <small class="card-text py-1 px-2 text-light rounded bg-primary">Odzież i obuwie</small>
+                    <small class="card-text py-1 px-2 text-light rounded bg-brand">wymiana +
+                        gotówka</small></div>
+                <div class="dropdown-divider"></div>
+                <div class="card-body pt-2">
+                    <p class="card-text">Nazwa Użytkowika</p>
+                </div>
+                <div class="card-header d-flex justify-content-between" style="border-bottom: none;">
+                    <p class="mb-0">Szacowana wartość:</p>
+                    <h5 class="card-title text-right mb-0"> 300 zł/szt.</h5>
                 </div>
             </div>
         </div>

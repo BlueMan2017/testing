@@ -6,7 +6,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Barterio App</title>
+    <!-- Tags -->
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'bartapp/favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'bartapp/favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'bartapp/favicon/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'bartapp/favicon/site.webmanifest' %}">
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- Styles -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'bartapp/styles/main.css' %}">
@@ -78,7 +86,7 @@
                         <i style="font-size: 30px" class="icon-user"></i></a>
                     <a class="text-light text-decoration-none" href="{% url 'bartapp:logout' %}">Wyloguj</a>
                     {% else %}
-                    <a class="text-light text-decoration-none" href="{% url 'bartapp:login' %}">Zaloguj</a>
+                    <a class="text-light text-decoration-none ml-lg-3" href="{% url 'bartapp:login' %}">Zaloguj</a>
                     {% endif %}
                     <!-- <a style="text-decoration: none; color: white;"
                         class="align-items-center order-lg-4 mr-2 ml-4 d-none d-lg-flex" href="/login">
